@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Character Path</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .character-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .character-selection {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .character {
+            cursor: pointer;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .character:hover {
+            transform: scale(1.1);
+        }
+        .character-description {
+            display: none;
+            padding: 20px;
+            border-top: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="character-container">
+    <h2>Select a Character to Experience Facility Maintenance</h2>
+    <div class="character-selection">
+        <div class="character" id="facility-manager">Facility Manager</div>
+        <div class="character" id="technician">Technician</div>
+        <div class="character" id="vendor">Vendor</div>
+    </div>
+    <div class="character-description" id="facility-manager-desc">
+        <h3>Facility Manager's Perspective</h3>
+        <p>The Facility Manager oversees the entire operation. From here, you can manage overall facility efficiency, assign work orders, monitor KPIs, and ensure compliance. Use dashboards to track asset health, schedule preventive maintenance, and allocate resources effectively.</p>
+    </div>
+    <div class="character-description" id="technician-desc">
+        <h3>Technician's Perspective</h3>
+        <p>The Technician focuses on work orders and assigned tasks. You can view detailed maintenance instructions, update the status of ongoing repairs, and mark tasks as completed. Everything needed is at your fingertips, ensuring efficiency and prioritization of critical jobs.</p>
+    </div>
+    <div class="character-description" id="vendor-desc">
+        <h3>Vendor's Perspective</h3>
+        <p>The Vendor provides essential services to the facility. From this view, you can receive work orders, submit quotes, and track job progress. Manage your interactions with the facility efficiently to ensure smooth operations and transparency.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("facility-manager").addEventListener("click", function() {
+        toggleCharacterDescription("facility-manager-desc");
+    });
+
+    document.getElementById("technician").addEventListener("click", function() {
+        toggleCharacterDescription("technician-desc");
+    });
+
+    document.getElementById("vendor").addEventListener("click", function() {
+        toggleCharacterDescription("vendor-desc");
+    });
+
+    function toggleCharacterDescription(descId) {
+        const descriptions = document.querySelectorAll(".character-description");
+        descriptions.forEach(function(desc) {
+            if (desc.id === descId) {
+                desc.style.display = desc.style.display === "block" ? "none" : "block";
+            } else {
+                desc.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
